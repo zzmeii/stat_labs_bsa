@@ -129,7 +129,7 @@ class RandomValues(Sample):
         ax.set_yticks([i / vl for i in n])
         x_labels = [round(x_marks[i], 2) if i % 2 == 0 else '-' for i in range(columns * 2 + 1)]
         ax.set_xticklabels(x_labels)
-        ax.set_yticklabels([ret[i] for i in ret])
+        #ax.set_yticklabels([ret[i] for i in ret])
 
         return plt, ret
 
@@ -186,6 +186,7 @@ class RandomValues(Sample):
         """
         result = []
         count = []
+        plt.cla()
         for i in range(len(self.values)):
             temp = [self.values[i], other.values[i]]
             if temp in result:
