@@ -104,7 +104,7 @@ class RandomValues(Sample):
         for i in intervals:
             ax.bar(values[0] + step / 2 + step * iter_number, intervals[i], color='white', width=step, edgecolor='b')
             ret.update({
-                f'{round(values[0] + step * iter_number, 2)}-{round(values[0] + step + step * iter_number, 2)}': f'{intervals[i]}/{vl}'})
+                f'{round(values[0] + step * iter_number, 2)}--{round(values[0] + step + step * iter_number, 2)}': f'{intervals[i]}/{vl}'})
             iter_number += 1
 
         # for i in range(columns):
@@ -221,11 +221,11 @@ class RandomValues(Sample):
         plt.show()
         return a_dot, b_dot
 
-    def find_distribution_type(self, _h=7):
+    def find_distribution_type(self, _h=5):
         keys = Laplas_function.keys()
         temp = self.histogram(_h)[1]
         inter_values = [eval(temp[i]) for i in temp]
-        temp = [i.split('-') for i in temp]
+        temp = [i.split('--') for i in temp]
         tt = []
         for i in temp:
             if i[0] not in tt:
